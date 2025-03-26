@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Moon</title>
+    <style>
+        @keyframes neonGlow {
+            0% {
+                color: #d1b3ff;
+                text-shadow: 0 0 5px #d1b3ff, 0 0 10px #a366ff, 0 0 15px #8000ff;
+            }
+
+            50% {
+                color: #a366ff;
+                text-shadow: 0 0 10px #a366ff, 0 0 20px #8000ff, 0 0 30px #4b0082;
+            }
+
+            100% {
+                color: #d1b3ff;
+                text-shadow: 0 0 5px #d1b3ff, 0 0 10px #a366ff, 0 0 15px #8000ff;
+            }
+        }
+
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background: #2c003e;
+            color: white;
+            flex-direction: column;
+        }
+
+        .top-nav {
+            display: flex;
+            background: #3d0055;
+            padding: 10px 20px;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .top-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background 0.3s;
+            border-radius: 5px;
+        }
+
+        .top-nav a.active, .top-nav a:hover {
+            background: #d1b3ff;
+            color: black;
+        }
+
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #3d0055;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .sidebar h1 {
+            font-size: 26px;
+            margin: 0 0 20px 0;
+            animation: neonGlow 1.5s infinite alternate;
+            text-align: center;
+        }
+
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar a.active, .sidebar a:hover {
+            background: #d1b3ff;
+            color: black;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Zoogle Search Styling */
+        .zoogle-search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 50px;
+        }
+
+        .zoogle-logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .zoogle-logo {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #d1b3ff, #8000ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(209, 179, 255, 0.5);
+        }
+
+        .zoogle-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #d1b3ff, #8000ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            border-radius: 10px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(128, 0, 255, 0.5);
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(209, 179, 255, 0.5);
+        }
+
+        .search-input-container {
+            display: flex;
+            width: 100%;
+            border: 2px solid #8000ff;
+            border-radius: 30px;
+            padding: 12px 20px;
+            background: rgba(128, 0, 255, 0.1);
+            box-shadow: 0 0 15px rgba(128, 0, 255, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            background: transparent;
+            color: #d1b3ff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: #a366ff;
+        }
+
+        .search-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .search-button {
+            background: #3d0055;
+            border: 1px solid #8000ff;
+            border-radius: 6px;
+            color: #d1b3ff;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(128, 0, 255, 0.3);
+        }
+
+        .search-button:hover {
+            background: #8000ff;
+            color: white;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="top-nav-container">
+            <a href="#home" class="top-tab" onclick="showTopContent(event, 'home')">Home</a>
+            <a href="#search" class="top-tab" onclick="showTopContent(event, 'search')">Search</a>
+            <a href="#other" class="top-tab" onclick="showTopContent(event, 'other')">Other</a>
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <div class="sidebar">
+            <h1>Z-Moon</h1>
+            <a href="#about" class="tab" onclick="showContent(event, 'about')">About Me</a>
+            <a href="#community" class="tab" onclick="showContent(event, 'community')">Cheat Community</a>
+        </div>
+        <div class="content" id="content">
+            <h2>Welcome to Z-Moon</h2>
+            <p>Please select a module to view.</p>
+        </div>
+    </div>
+
+    <script>
+        function showTopContent(event, section) {
+            document.querySelectorAll('.top-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const mainContainer = document.getElementById('main-container');
+            
+            if (section === 'home') {
+                mainContainer.innerHTML = `
+                    <div class="sidebar">
+                        <h1>Z-Moon</h1>
+                        <a href="#about" class="tab" onclick="showContent(event, 'about')">About Me</a>
+                        <a href="#community" class="tab" onclick="showContent(event, 'community')">Cheat Community</a>
+                    </div>
+                    <div class="content" id="content">
+                        <h2>Welcome to Z-Moon</h2>
+                        <p>Please select a module to view.</p>
+                    </div>
+                `;
+            } else if (section === 'search') {
+                mainContainer.innerHTML = `
+                    <div class="sidebar">
+                        <h1>Z-Moon</h1>
+                    </div>
+                    <div class="content" id="content">
+                        <div class="zoogle-search-container">
+                            <div class="zoogle-logo-container">
+                                <div class="zoogle-icon">Z</div>
+                                <div class="zoogle-logo">oogle</div>
+                            </div>
+                            <div class="search-input-container">
+                                <input type="text" class="search-input" placeholder="Search in Zoogle">
+                            </div>
+                            <div class="search-buttons">
+                                <button class="search-button">Zoogle Search</button>
+                                <button class="search-button">I'm Feeling Lucky</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (section === 'other') {
+                mainContainer.innerHTML = `
+                    <div class="sidebar">
+                        <h1>Z-Moon</h1>
+                    </div>
+                    <div class="content" id="content">
+                        <h2>Other</h2>
+                        <p>Other function page...</p>
+                    </div>
+                `;
+            }
+        }
+
+        function showContent(event, section) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const content = document.getElementById('content');
+            if (section === 'about') {
+                content.innerHTML = "<h2>About Me</h2><p>This is an introduction about me...</p>";
+            } else if (section === 'community') {
+                content.innerHTML = "<h2>Cheat Community</h2><p>This is an introduction to the cheat community...</p>";
+            }
+        }
+    </script>
+</body>
+</html>
