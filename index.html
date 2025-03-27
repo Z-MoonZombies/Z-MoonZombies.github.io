@@ -7,18 +7,52 @@
     <style>
         @keyframes neonGlow {
             0% {
-                color: #d1b3ff;
-                text-shadow: 0 0 5px #d1b3ff, 0 0 10px #a366ff, 0 0 15px #8000ff;
+                color: #4b0082;
+                text-shadow: 0 0 10px rgba(75, 0, 130, 0.5);
             }
 
             50% {
-                color: #a366ff;
-                text-shadow: 0 0 10px #a366ff, 0 0 20px #8000ff, 0 0 30px #4b0082;
+                color: #6a1b9a;
+                text-shadow: 0 0 20px rgba(75, 0, 130, 0.8);
             }
 
             100% {
-                color: #d1b3ff;
-                text-shadow: 0 0 5px #d1b3ff, 0 0 10px #a366ff, 0 0 15px #8000ff;
+                color: #4b0082;
+                text-shadow: 0 0 10px rgba(75, 0, 130, 0.5);
+            }
+        }
+
+        @keyframes textShimmer {
+            0%, 100% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 100% 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes welcomeTextAppear {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -54,10 +88,10 @@
             border-radius: 5px;
         }
 
-        .top-nav a.active, .top-nav a:hover {
-            background: #d1b3ff;
-            color: black;
-        }
+            .top-nav a.active, .top-nav a:hover {
+                background: #d1b3ff;
+                color: black;
+            }
 
         .main-container {
             display: flex;
@@ -73,26 +107,26 @@
             position: relative;
         }
 
-        .sidebar h1 {
-            font-size: 26px;
-            margin: 0 0 20px 0;
-            animation: neonGlow 1.5s infinite alternate;
-            text-align: center;
-        }
+            .sidebar h1 {
+                font-size: 26px;
+                margin: 0 0 20px 0;
+                animation: neonGlow 1.5s infinite alternate;
+                text-align: center;
+            }
 
-        .sidebar a {
-            padding: 15px;
-            text-decoration: none;
-            color: white;
-            display: block;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+            .sidebar a {
+                padding: 15px;
+                text-decoration: none;
+                color: white;
+                display: block;
+                border-radius: 5px;
+                transition: background 0.3s;
+            }
 
-        .sidebar a.active, .sidebar a:hover {
-            background: #d1b3ff;
-            color: black;
-        }
+                .sidebar a.active, .sidebar a:hover {
+                    background: #d1b3ff;
+                    color: black;
+                }
 
         .content {
             flex: 1;
@@ -100,6 +134,30 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        .about-welcome {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            background: linear-gradient( 45deg, #4b0082, #6a1b9a, #38006b, #4b0082 );
+            background-size: 400% 400%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: textShimmer 5s ease infinite, welcomeTextAppear 1s ease-out forwards;
+        }
+
+        .about-subtext {
+            text-align: center;
+            color: #7e57c2;
+            opacity: 0.7;
+            letter-spacing: 2px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
         }
 
         /* Zoogle Search Styling */
@@ -166,9 +224,9 @@
             outline: none;
         }
 
-        .search-input::placeholder {
-            color: #a366ff;
-        }
+            .search-input::placeholder {
+                color: #a366ff;
+            }
 
         .search-buttons {
             display: flex;
@@ -187,11 +245,11 @@
             box-shadow: 0 0 10px rgba(128, 0, 255, 0.3);
         }
 
-        .search-button:hover {
-            background: #8000ff;
-            color: white;
-            transform: scale(1.05);
-        }
+            .search-button:hover {
+                background: #8000ff;
+                color: white;
+                transform: scale(1.05);
+            }
     </style>
 </head>
 <body>
@@ -220,50 +278,50 @@
             event.target.classList.add('active');
 
             const mainContainer = document.getElementById('main-container');
-            
+
             if (section === 'home') {
                 mainContainer.innerHTML = `
-                    <div class="sidebar">
-                        <h1>Z-Moon</h1>
-                        <a href="#about" class="tab" onclick="showContent(event, 'about')">About Me</a>
-                        <a href="#community" class="tab" onclick="showContent(event, 'community')">Cheat Community</a>
-                    </div>
-                    <div class="content" id="content">
-                        <h2>Welcome to Z-Moon</h2>
-                        <p>Please select a module to view.</p>
-                    </div>
-                `;
+                        <div class="sidebar">
+                            <h1>Z-Moon</h1>
+                            <a href="#about" class="tab" onclick="showContent(event, 'about')">About Me</a>
+                            <a href="#community" class="tab" onclick="showContent(event, 'community')">Cheat Community</a>
+                        </div>
+                        <div class="content" id="content">
+                            <h2>Welcome to Z-Moon</h2>
+                            <p>Please select a module to view.</p>
+                        </div>
+                    `;
             } else if (section === 'search') {
                 mainContainer.innerHTML = `
-                    <div class="sidebar">
-                        <h1>Z-Moon</h1>
-                    </div>
-                    <div class="content" id="content">
-                        <div class="zoogle-search-container">
-                            <div class="zoogle-logo-container">
-                                <div class="zoogle-icon">Z</div>
-                                <div class="zoogle-logo">oogle</div>
-                            </div>
-                            <div class="search-input-container">
-                                <input type="text" class="search-input" placeholder="Search in Zoogle">
-                            </div>
-                            <div class="search-buttons">
-                                <button class="search-button">Zoogle Search</button>
-                                <button class="search-button">I'm Feeling Lucky</button>
+                        <div class="sidebar">
+                            <h1>Z-Moon</h1>
+                        </div>
+                        <div class="content" id="content">
+                            <div class="zoogle-search-container">
+                                <div class="zoogle-logo-container">
+                                    <div class="zoogle-icon">Z</div>
+                                    <div class="zoogle-logo">oogle</div>
+                                </div>
+                                <div class="search-input-container">
+                                    <input type="text" class="search-input" placeholder="Search in Zoogle">
+                                </div>
+                                <div class="search-buttons">
+                                    <button class="search-button">Zoogle Search</button>
+                                    <button class="search-button">I'm Feeling Lucky</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `;
+                    `;
             } else if (section === 'other') {
                 mainContainer.innerHTML = `
-                    <div class="sidebar">
-                        <h1>Z-Moon</h1>
-                    </div>
-                    <div class="content" id="content">
-                        <h2>Other</h2>
-                        <p>Other function page...</p>
-                    </div>
-                `;
+                        <div class="sidebar">
+                            <h1>Z-Moon</h1>
+                        </div>
+                        <div class="content" id="content">
+                            <h2>Other</h2>
+                            <p>Other function page...</p>
+                        </div>
+                    `;
             }
         }
 
@@ -273,7 +331,10 @@
 
             const content = document.getElementById('content');
             if (section === 'about') {
-                content.innerHTML = "<h2>About Me</h2><p>This is an introduction about me...</p>";
+                content.innerHTML = `
+                        <h1 class="about-welcome" data-text="Welcome to the Moon">Welcome to the Moon</h1>
+                        <p class="about-subtext">Explore the lunar landscape of possibilities</p>
+                    `;
             } else if (section === 'community') {
                 content.innerHTML = "<h2>Cheat Community</h2><p>This is an introduction to the cheat community...</p>";
             }
