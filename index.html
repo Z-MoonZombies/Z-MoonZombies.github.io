@@ -167,6 +167,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-y: auto; /* Enable vertical scrolling */
         }
 
         .about-welcome {
@@ -208,6 +209,42 @@
             font-size: 24px;
             color: #7e57c2;
             animation: slideInFromRight 1s ease-out 1s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        /* New record holder section */
+        .record-holder-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(61, 0, 85, 0.3);
+            border-radius: 15px;
+            border: 1px solid #8000ff;
+            box-shadow: 0 0 15px rgba(128, 0, 255, 0.3);
+        }
+
+        .record-text {
+            flex: 1;
+            text-align: left;
+            font-size: 24px;
+            color: #d1b3ff;
+            font-weight: bold;
+            padding-right: 20px;
+            animation: slideInFromLeft 1.2s ease-out 0.2s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .record-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: zoomIn 1.5s ease-out 0.5s forwards;
             opacity: 0;
             animation-fill-mode: forwards;
         }
@@ -384,11 +421,22 @@
             const content = document.getElementById('content');
             if (section === 'about') {
                 content.innerHTML = `
-                        <h1 class="about-welcome" data-text="Welcome to the Moon">Welcome to the Moon</h1>
-                        <p class="zmoon-line1">I'm Z-MoonZombies</p>
-                        <p class="zmoon-line2">cheating in garden warfare 2</p>
-                        <p class="zmoon-line3">created multiple cheat communities</p>
-                    `;
+                    <h1 class="about-welcome" data-text="Welcome to the Moon">Welcome to the Moon</h1>
+                    <p class="zmoon-line1">I'm Z-MoonZombies</p>
+                    <p class="zmoon-line2">cheating in garden warfare 2</p>
+                    <p class="zmoon-line3">created multiple cheat communities</p>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <div class="record-holder-section">
+                        <div class="record-text">GW2 multiplayer thousand kills world record holder</div>
+                        <div class="record-image">
+                            <img src="image2/2024-07-26_234044.png" alt="thousand kills world record" style="max-width: 100%; border-radius: 10px; border: 2px solid #8000ff; box-shadow: 0 0 20px rgba(128, 0, 255, 0.5);">
+                        </div>
+                    </div>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <p style="text-align: center; font-size: 24px; color: #a366ff;">Keep scrolling!</p>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <p style="text-align: center; font-size: 28px; color: #8000ff;">End of content</p>
+                `;
             } else if (section === 'community') {
                 content.innerHTML = "<h2>Cheat Community</h2><p>This is an introduction to the cheat community...</p>";
             }
