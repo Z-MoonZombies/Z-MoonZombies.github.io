@@ -56,6 +56,39 @@
             }
         }
 
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         body {
             display: flex;
             font-family: Arial, sans-serif;
@@ -151,13 +184,32 @@
             animation: textShimmer 5s ease infinite, welcomeTextAppear 1s ease-out forwards;
         }
 
-        .about-subtext {
+        .zmoon-line1 {
             text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #d1b3ff;
+            margin-bottom: 20px;
+            animation: slideInFromLeft 1s ease-out forwards;
+        }
+
+        .zmoon-line2 {
+            text-align: center;
+            font-size: 28px;
+            color: #a366ff;
+            margin-bottom: 20px;
+            animation: zoomIn 1s ease-out 0.5s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .zmoon-line3 {
+            text-align: center;
+            font-size: 24px;
             color: #7e57c2;
-            opacity: 0.7;
-            letter-spacing: 2px;
-            font-weight: 300;
-            animation: fadeInUp 1s ease-out 0.5s forwards;
+            animation: slideInFromRight 1s ease-out 1s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
         }
 
         /* Zoogle Search Styling */
@@ -333,7 +385,9 @@
             if (section === 'about') {
                 content.innerHTML = `
                         <h1 class="about-welcome" data-text="Welcome to the Moon">Welcome to the Moon</h1>
-                        <p class="about-subtext">Explore the lunar landscape of possibilities</p>
+                        <p class="zmoon-line1">I'm Z-MoonZombies</p>
+                        <p class="zmoon-line2">cheating in garden warfare 2</p>
+                        <p class="zmoon-line3">created multiple cheat communities</p>
                     `;
             } else if (section === 'community') {
                 content.innerHTML = "<h2>Cheat Community</h2><p>This is an introduction to the cheat community...</p>";
