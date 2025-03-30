@@ -88,6 +88,27 @@
                 transform: scale(1);
             }
         }
+        
+        @keyframes fadeInSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .country-title {
+            animation: fadeInSlideUp 1s ease-out forwards;
+        }
+
+        .country-text {
+            animation: fadeInSlideUp 1.2s ease-out 0.3s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
 
         body {
             display: flex;
@@ -425,7 +446,7 @@
                     <p class="zmoon-line1">I'm Z-MoonZombies</p>
                     <p class="zmoon-line2">cheating in garden warfare 2</p>
                     <p class="zmoon-line3">created multiple cheat communities</p>
-                    <br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br>
                     <div class="record-holder-section">
                         <div class="record-text">GW2 multiplayer thousand kills world record holder</div>
                         <div class="record-image">
@@ -433,7 +454,8 @@
                         </div>
                     </div>
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <p style="text-align: center; font-size: 24px; color: #a366ff;">Keep scrolling!</p>
+                    <p style="text-align: center; font-size: 24px; color: #a366ff;" class="country-title">My Country</p>
+                    <p style="text-align: center; font-size: 18px; color: #d1b3ff;" class="country-text">I don't want to discuss this because some of the things before I hate my country</p>
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     <p style="text-align: center; font-size: 28px; color: #8000ff;">End of content</p>
                 `;
