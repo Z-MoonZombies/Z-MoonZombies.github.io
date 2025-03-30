@@ -270,14 +270,34 @@
             animation-fill-mode: forwards;
         }
 
-        /* Zoogle Search Styling */
-        .zoogle-search-container {
+        .country-section {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 600px;
+            width: 90%;
             margin-top: 50px;
+            padding: 30px;
+            background: rgba(61, 0, 85, 0.3);
+            border-radius: 15px;
+            border: 1px solid #8000ff;
+            box-shadow: 0 0 15px rgba(128, 0, 255, 0.3);
+        }
+
+        .country-section-title {
+            color: #a366ff;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeInSlideUp 1s ease-out forwards;
+        }
+
+        .country-section-content {
+            color: #d1b3ff;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+            animation: fadeInSlideUp 1.2s ease-out 0.3s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
         }
 
         .zoogle-logo-container {
@@ -453,9 +473,11 @@
                             <img src="image2/2024-07-26_234044.png" alt="thousand kills world record" style="max-width: 100%; border-radius: 10px; border: 2px solid #8000ff; box-shadow: 0 0 20px rgba(128, 0, 255, 0.5);">
                         </div>
                     </div>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <p style="text-align: center; font-size: 24px; color: #a366ff;" class="country-title">My Country</p>
-                    <p style="text-align: center; font-size: 18px; color: #d1b3ff;" class="country-text">I don't want to discuss this because some of the things before I hate my country</p>
+                    <br><br><br><br><br><br>
+                     <div class="country-section">
+                    <h2 class="country-section-title">My Country</h2>
+                    <p class="country-section-content">I don't want to discuss this because some of the things before I hate my country</p>
+                    </div>
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     <p style="text-align: center; font-size: 28px; color: #8000ff;">End of content</p>
                 `;
