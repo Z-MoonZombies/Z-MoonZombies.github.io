@@ -561,21 +561,23 @@
                 content.innerHTML = "<h2>Cheat Community</h2><p>This is an introduction to the cheat community...</p>";
             }
         }
-    <script>
-        document.addEventListener('click', function (event) {
-            const img = document.getElementById('toggleImage');
-            if (img && event.target === img) {
-                img.classList.add('fade-out');
-                setTimeout(() => {
-                    if (img.src.includes('image2/2024-07-26_234044.png')) {
-                        img.src = '2025-07-11_153100.png';
-                    } else {
-                        img.src = 'image2/2024-07-26_234044.png';
-                    }
-                    img.classList.remove('fade-out');
-                }, 500); 
-            }
-        });
     </script>
+    
+    <script>
+    document.addEventListener('click', function (event) {
+        const img = document.getElementById('toggleImage');
+        if (img && event.target === img) {
+            img.classList.add('fade-out');
+            setTimeout(() => {
+                if (img.src.includes('image2/2024-07-26_234044.png')) {
+                    img.src = '2025-07-11_153100.png';
+                } else {
+                    img.src = 'image2/2024-07-26_234044.png';
+                }
+                img.classList.remove('fade-out');
+            }, 500); 
+        }
+    });
+</script>
 </body>
 </html>
