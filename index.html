@@ -141,6 +141,14 @@
                 background-position: 0% 50%;
             }
         }
+        .fade-image {
+            transition: opacity 0.5s ease;
+            opacity: 1;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
 
         .top-nav {
             display: flex;
@@ -476,47 +484,47 @@
 
             if (section === 'home') {
                 mainContainer.innerHTML = `
-                            <div class="sidebar">
-                                <h1>Z-Moon</h1>
-                                <a href="#about" class="tab" onclick="showContent(event, 'about')">About Me</a>
-                                <a href="#community" class="tab" onclick="showContent(event, 'community')">Cheat Community</a>
-                            </div>
-                            <div class="content" id="content">
-                                <h2>Welcome to Z-Moon</h2>
-                                <p>Please select a module to view.</p>
-                            </div>
-                        `;
+                                <div class="sidebar">
+                                    <h1>Z-Moon</h1>
+                                    <a href="#about" class="tab" onclick="showContent(event, 'about')">About Me</a>
+                                    <a href="#community" class="tab" onclick="showContent(event, 'community')">Cheat Community</a>
+                                </div>
+                                <div class="content" id="content">
+                                    <h2>Welcome to Z-Moon</h2>
+                                    <p>Please select a module to view.</p>
+                                </div>
+                            `;
             } else if (section === 'search') {
                 mainContainer.innerHTML = `
-                            <div class="sidebar">
-                                <h1>Z-Moon</h1>
-                            </div>
-                            <div class="content" id="content">
-                                <div class="zoogle-search-container">
-                                    <div class="zoogle-logo-container">
-                                        <div class="zoogle-icon">Z</div>
-                                        <div class="zoogle-logo">oogle</div>
-                                    </div>
-                                    <div class="search-input-container">
-                                        <input type="text" class="search-input" placeholder="Search in Zoogle">
-                                    </div>
-                                    <div class="search-buttons">
-                                        <button class="search-button">Zoogle Search</button>
-                                        <button class="search-button">I'm Feeling Lucky</button>
+                                <div class="sidebar">
+                                    <h1>Z-Moon</h1>
+                                </div>
+                                <div class="content" id="content">
+                                    <div class="zoogle-search-container">
+                                        <div class="zoogle-logo-container">
+                                            <div class="zoogle-icon">Z</div>
+                                            <div class="zoogle-logo">oogle</div>
+                                        </div>
+                                        <div class="search-input-container">
+                                            <input type="text" class="search-input" placeholder="Search in Zoogle">
+                                        </div>
+                                        <div class="search-buttons">
+                                            <button class="search-button">Zoogle Search</button>
+                                            <button class="search-button">I'm Feeling Lucky</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        `;
+                            `;
             } else if (section === 'other') {
                 mainContainer.innerHTML = `
-                            <div class="sidebar">
-                                <h1>Z-Moon</h1>
-                            </div>
-                            <div class="content" id="content">
-                                <h2>Other</h2>
-                                <p>Other function page...</p>
-                            </div>
-                        `;
+                                <div class="sidebar">
+                                    <h1>Z-Moon</h1>
+                                </div>
+                                <div class="content" id="content">
+                                    <h2>Other</h2>
+                                    <p>Other function page...</p>
+                                </div>
+                            `;
             }
         }
 
@@ -527,32 +535,48 @@
             const content = document.getElementById('content');
             if (section === 'about') {
                 content.innerHTML = `
-                        <h1 class="about-welcome" data-text="Welcome to the Moon">Welcome to the Moon</h1>
-                        <p class="zmoon-line1">I'm Z-MoonZombies</p>
-                        <p class="zmoon-line2">cheating in garden warfare and garden warfare 2</p>
-                        <p class="zmoon-line3">created multiple cheat communities</p>
-                        <br><br><br><br><br><br>
-                        <div class="record-holder-section">
-                            <div class="record-text">GW2 multiplayer thousand kills world record holder</div>
-                            <div class="record-image">
-                                <img src="image2/2024-07-26_234044.png" alt="thousand kills world record" style="max-width: 100%; border-radius: 10px; border: 2px solid #8000ff; box-shadow: 0 0 20px rgba(128, 0, 255, 0.5);">
+                            <h1 class="about-welcome" data-text="Welcome to the Moon">Welcome to the Moon</h1>
+                            <p class="zmoon-line1">I'm Z-MoonZombies</p>
+                            <p class="zmoon-line2">cheating in garden warfare and garden warfare 2</p>
+                            <p class="zmoon-line3">created multiple cheat communities</p>
+                            <br><br><br><br><br><br>
+                            <div class="record-holder-section">
+                                <div class="record-text">GW2 multiplayer thousand kills world record holder</div>
+                                <div class="record-image">
+                                    <img id="toggleImage" src="image2/2024-07-26_234044.png" alt="thousand kills world record" class="fade-image" style="max-width: 100%; border-radius: 10px; border: 2px solid #8000ff; box-shadow: 0 0 20px rgba(128, 0, 255, 0.5); cursor: pointer;">
+                                </div>
                             </div>
-                        </div>
-                        <br><br><br><br>
-                         <div class="country-section">
-                        <h2 class="country-section-title">My Country</h2>
-                        <p class="country-section-content">I don't want to discuss this because some of the things before I hate my country</p>
-                        </div>
-                        <br><br><br><br><br><br>
-                        <div class="Social-Media">
-                        <h2 class="Social-Media-title">My YouTube</h2>
-                        <p class="country-section-content">https://www.youtube.com/@Z-MoonZombies</p>
-                        </div>
-                    `;
+                            <br><br><br><br>
+                             <div class="country-section">
+                            <h2 class="country-section-title">My Country</h2>
+                            <p class="country-section-content">I don't want to discuss this because some of the things before I hate my country</p>
+                            </div>
+                            <br><br><br><br><br><br>
+                            <div class="Social-Media">
+                            <h2 class="Social-Media-title">My YouTube</h2>
+                            <p class="country-section-content">https://www.youtube.com/@Z-MoonZombies</p>
+                            </div>
+                        `;
             } else if (section === 'community') {
                 content.innerHTML = "<h2>Cheat Community</h2><p>This is an introduction to the cheat community...</p>";
             }
         }
+
+    <script>
+        document.addEventListener('click', function (event) {
+            const img = document.getElementById('toggleImage');
+            if (img && event.target === img) {
+                img.classList.add('fade-out');
+                setTimeout(() => {
+                    if (img.src.includes('image2/2024-07-26_234044.png')) {
+                        img.src = '2025-07-11_153100.png';
+                    } else {
+                        img.src = 'image2/2024-07-26_234044.png';
+                    }
+                    img.classList.remove('fade-out');
+                }, 500); 
+            }
+        });
     </script>
 </body>
 </html>
